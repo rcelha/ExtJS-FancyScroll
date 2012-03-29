@@ -22,7 +22,6 @@ Ext.define('FancyScroll', {
         t.setStyle('position', 'relative');
         t.setStyle('z-index', '1');
         t.addCls('fancy-scroll-bar-target');
-        t.addClsOnOver('fancy-scroll-bar-over')
 
         scrollWrapper = this.scrollWrapper = Ext.DomHelper.createDom({
             tag: 'div',
@@ -92,7 +91,8 @@ Ext.define('FancyScroll', {
             height = t.getHeight(),
             maxHeight = (scrollHeight - height) * -1;
         scrollTop += way > 0 ? 20 : -20;
-      
+        
+        if(height > scrollHeight) return;
         if(scrollTop > 0){scrollTop = 0}
         if(scrollTop  < maxHeight){ scrollTop = maxHeight}
       
@@ -100,7 +100,22 @@ Ext.define('FancyScroll', {
         sbEl.setTop((scrollTop *-1)* (height/ scrollHeight ));
         evt.preventDefault();
     },
-      
+    
+    
+    /**
+     * @protected
+     */ 
+    addHoverClass: function(){
+        this.target.addCls("fancy-scroll-bar-over");
+    },
+
+    /**
+     * @protected
+     */
+    removeHoverClass: function(){
+        this.target.removeCls("fancy-scroll-bar-over");
+    },
+
     resizeScrollBar: function(){
         var
             t = this.target,
@@ -109,6 +124,11 @@ Ext.define('FancyScroll', {
             sbEl = Ext.get(this.scrollBar);
       
             sbEl.setHeight(height * (height/ scrollHeight));
+        
+        t.un('mouseenter', this.addHoverClass);
+        t.un('mouseleave', this.removeHoverClass);
+        if(height > scrollHeight) return;
+        t.hover(this.addHoverClass, this.removeHoverClass, this);
     },
       
     constructor: function(options){
