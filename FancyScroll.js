@@ -125,16 +125,16 @@ Ext.define('FancyScroll', {
       
             sbEl.setHeight(height * (height/ scrollHeight));
         
+        // TODO:: option to alway show the scrollbar
         t.un('mouseenter', this.addHoverClass);
         t.un('mouseleave', this.removeHoverClass);
-        if(height > scrollHeight) return;
+        if(height > scrollHeight) return; // TODO :: wich 'height' should I use? 
         t.hover(this.addHoverClass, this.removeHoverClass, this);
     },
       
     constructor: function(options){
         this.initConfig(options);
         this.createDom();
-        zzz = this;
     } 
 });
 
@@ -156,7 +156,6 @@ Ext.define('Ext.ux.plugin.FancyScroll', {
 
     init: function(owner){
         this.owner= owner;
-        bla = owner;
         var e = 'afterrender';
         if(owner instanceof Ext.view.View){
             e = 'refresh'; // viewready?
