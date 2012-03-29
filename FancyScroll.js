@@ -29,7 +29,8 @@ Ext.define('FancyScroll', {
             style: {
                 display: 'block',
                 height: 'auto',
-                position: 'absolute'
+                position: 'absolute',
+                width: '100%'
             }
         });
 
