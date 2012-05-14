@@ -1,0 +1,9 @@
+---
+ name: FancyScroll for ExtJS
+ authors:
+   - Rodrigo Corrêa
+ normalize_css: no
+ resources:
+   - http://docs.sencha.com/ext-js/4-0/resources/css/app.css
+   - https://raw.github.com/rcelha/ExtJS-FancyScroll/master/FancyScroll.js
+ ...
