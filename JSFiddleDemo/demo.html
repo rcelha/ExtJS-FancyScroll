@@ -1,130 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <title>Foo</title>
-        <!-- script type='text/javascript' src='ext-4.0.7-gpl/ext-all-debug.js'></script>
-        <link rel="stylesheet" type="text/css" href="ext-4.0.7-gpl/resources/css/ext-all.css" -->
+<div id='ex1'></div>
+<div id='ex3'></div>
 
+<div id='dom_example1' style='width: 300px; height: 200px; display: block; border: 1px solid black;'>
+    <ul>
+        <li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li>
+    </ul>
+</div>
+<br />
+<br />
+<br />
+<br />
 
-            <link rel="stylesheet" type="text/css" href="http://docs.sencha.com/ext-js/4-0/resources/css/app.css" />
-        <script type='text/javascript' src='http://docs.sencha.com/ext-js/4-0/extjs/ext-all.js'></script>
-
-        <script type='text/javascript' src='FancyScroll.js'></script>
-
-        <script type='text/javascript'>
-            Ext.onReady(function(){
-            document.dom_example1 = Ext.create('FancyScroll', {
-                targetDom : Ext.DomQuery.select('#dom_example1')[0]
-            });
-            document.dom_example2 = Ext.create('FancyScroll', {
-                targetDom : Ext.DomQuery.select('#dom_example2')[0],
-                position: 'left',
-                color: 'cyan'
-            });
-            Ext.define('ExampleContent', {
-                extend:  'Ext.panel.Panel',
-                alias: 'widget.examplecontent',
-                html: '<p>EXAMPLE CONTENT</p>',
-                height: 300,
-                width: 300,
-                items: {
-                    xtype: 'button',
-                    text: 'abcdefghijlkmnopqrstuvxyz',
-                    handler: function(){
-                        console.log('cricou', arguments)
-                    }
-                }
-            });
-
-            document.ex1 = Ext.create('Ext.panel.Panel', {
-                renderTo: 'ex1',
-                title: 'Testing the fucking scroll',
-                height: 320,
-                width: 500,
-                plugins: [ new Ext.ux.plugin.FancyScroll()],
-                items: [
-                    {html: 'only one item'}
-                ]
-            });
-
-            document.ex2 = Ext.create('Ext.Window', {
-                autoShow: true,
-                title: 'Testing the fucking scroll',
-                height: 320,
-                width: 500,
-                plugins: [ new Ext.ux.plugin.FancyScroll()],
-                items: [
-                    {xtype: 'examplecontent', itemId: 'abc'},
-                    {xtype: 'examplecontent'},
-                    {xtype: 'examplecontent'}
-                ]
-            });
-
-            Ext.define('Image', {
-                extend: 'Ext.data.Model',
-                fields: [
-                    { name:'src', type:'string' },
-                    { name:'caption', type:'string' }
-                ]
-            });
-
-            Ext.create('Ext.data.Store', {
-                id:'imagesStore',
-                model: 'Image',
-                data: [
-                    { src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing & Charts' },
-                    { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
-                    { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
-                    { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned' }
-                ]
-            });
-
-            var imageTpl = new Ext.XTemplate(
-                '<tpl for=".">',
-                    '<div style="margin-bottom: 10px;" class="thumb-wrap">',
-                      '<img src="{src}" />',
-                      '<br/><span>{caption}</span>',
-                    '</div>',
-                '</tpl>'
-            );
-
-            document.ex3 = Ext.create('Ext.view.View', {
-                store: Ext.data.StoreManager.lookup('imagesStore'),
-                tpl: imageTpl,
-                renderTo: 'ex3',
-                autoScroll: true,
-                height: 200,
-                width: 300,
-                plugins: [ new Ext.ux.plugin.FancyScroll()],
-                itemSelector: 'div.thumb-wrap',
-                emptyText: 'No images available'
-            });     
-
-
-        });
-        </script>
-    </head>
-    <body>
-        <div id='ex1'></div>
-        <div id='ex3'></div>
-        
-        <div id='dom_example1' style='width: 300px; height: 200px; display: block; border: 1px solid black;'>
-            <ul>
-                <li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li><li>Linha 1</li>
-            </ul>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <div id='dom_example2' style='width: 300px; height: 200px; display: block; border: 1px solid black;'>
-                <p>&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec condimentum pretium nisl. Integer quis tellus nec turpis placerat scelerisque. In semper lacus eu nisi. Praesent dignissim metus sit amet enim. Nam auctor, neque semper congue sagittis, risus mi commodo pede, nec euismod magna libero at sem. In enim magna, vestibulum et, blandit sit amet, tempor vel, ligula. Phasellus ante augue, congue vitae, faucibus quis, gravida sit amet, diam. Nullam congue accumsan magna. Etiam a nunc. Aliquam elit urna, ornare vitae, ultrices et, tempus non, nisl. Duis eros neque, luctus quis, interdum ultricies, auctor eu, urna. Donec nibh. Integer in purus tempus mi venenatis mollis. Cras nunc odio, porttitor at, accumsan ac, adipiscing vitae, ante.</p>
-                <p>Nam dui enim, fringilla vitae, rhoncus non, pharetra in, nunc. Sed a lectus vel orci bibendum placerat. Aliquam erat volutpat. Integer odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis dictum egestas lorem. Donec ultricies volutpat tellus. Phasellus justo arcu, pharetra eget, cursus non, consectetuer ac, nunc. Fusce orci tortor, semper vel, lacinia vitae, accumsan id, quam. Mauris semper molestie lectus. Duis venenatis erat ultrices nisl.</p>
-                <p>Morbi augue enim, ultricies nec, lobortis sed, iaculis eu, quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur sollicitudin, elit eu porttitor varius, tellus velit tristique sem, vitae blandit nisi eros id purus. Nunc non lorem. Nunc blandit purus nec nisi. Donec vulputate, urna vel interdum tristique, tellus mauris pretium lacus, quis sodales lectus nunc sit amet turpis. Suspendisse potenti. Fusce accumsan. Maecenas aliquam consectetuer augue. Fusce est neque, condimentum nec, condimentum vitae, consectetuer ac, tortor. Praesent ultricies urna in lectus. Nam erat nunc, venenatis nec, facilisis sed, feugiat ac, pede. Vivamus aliquam aliquet libero. Curabitur dolor nunc, scelerisque at, gravida dignissim, rutrum at, orci. Maecenas vitae libero id eros rutrum hendrerit. Duis lacinia mauris non erat. Nullam et dolor vel leo sollicitudin suscipit. Sed laoreet libero.</p>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent turpis. Suspendisse molestie, neque non congue ullamcorper, neque sem consequat nisl, eget pulvinar odio erat et tellus. Nunc luctus convallis dolor. Nullam non mauris. Etiam nisi magna, adipiscing eu, nonummy ac, laoreet nec, est. Pellentesque tristique, est vel condimentum feugiat, nisi justo rhoncus pede, in pulvinar mauris lectus vitae dui. Pellentesque scelerisque. Vestibulum tellus dolor, porta quis, facilisis nec, convallis vitae, quam. Quisque nisi. Nunc vitae nulla vel turpis mollis molestie. Etiam vitae massa.&lt;</p>
-        </div>
-    </body>
-</html>
+<div id='dom_example2' style='width: 300px; height: 200px; display: block; border: 1px solid black;'>
+        <p>&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec condimentum pretium nisl. Integer quis tellus nec turpis placerat scelerisque. In semper lacus eu nisi. Praesent dignissim metus sit amet enim. Nam auctor, neque semper congue sagittis, risus mi commodo pede, nec euismod magna libero at sem. In enim magna, vestibulum et, blandit sit amet, tempor vel, ligula. Phasellus ante augue, congue vitae, faucibus quis, gravida sit amet, diam. Nullam congue accumsan magna. Etiam a nunc. Aliquam elit urna, ornare vitae, ultrices et, tempus non, nisl. Duis eros neque, luctus quis, interdum ultricies, auctor eu, urna. Donec nibh. Integer in purus tempus mi venenatis mollis. Cras nunc odio, porttitor at, accumsan ac, adipiscing vitae, ante.</p>
+        <p>Nam dui enim, fringilla vitae, rhoncus non, pharetra in, nunc. Sed a lectus vel orci bibendum placerat. Aliquam erat volutpat. Integer odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis dictum egestas lorem. Donec ultricies volutpat tellus. Phasellus justo arcu, pharetra eget, cursus non, consectetuer ac, nunc. Fusce orci tortor, semper vel, lacinia vitae, accumsan id, quam. Mauris semper molestie lectus. Duis venenatis erat ultrices nisl.</p>
+        <p>Morbi augue enim, ultricies nec, lobortis sed, iaculis eu, quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur sollicitudin, elit eu porttitor varius, tellus velit tristique sem, vitae blandit nisi eros id purus. Nunc non lorem. Nunc blandit purus nec nisi. Donec vulputate, urna vel interdum tristique, tellus mauris pretium lacus, quis sodales lectus nunc sit amet turpis. Suspendisse potenti. Fusce accumsan. Maecenas aliquam consectetuer augue. Fusce est neque, condimentum nec, condimentum vitae, consectetuer ac, tortor. Praesent ultricies urna in lectus. Nam erat nunc, venenatis nec, facilisis sed, feugiat ac, pede. Vivamus aliquam aliquet libero. Curabitur dolor nunc, scelerisque at, gravida dignissim, rutrum at, orci. Maecenas vitae libero id eros rutrum hendrerit. Duis lacinia mauris non erat. Nullam et dolor vel leo sollicitudin suscipit. Sed laoreet libero.</p>
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent turpis. Suspendisse molestie, neque non congue ullamcorper, neque sem consequat nisl, eget pulvinar odio erat et tellus. Nunc luctus convallis dolor. Nullam non mauris. Etiam nisi magna, adipiscing eu, nonummy ac, laoreet nec, est. Pellentesque tristique, est vel condimentum feugiat, nisi justo rhoncus pede, in pulvinar mauris lectus vitae dui. Pellentesque scelerisque. Vestibulum tellus dolor, porta quis, facilisis nec, convallis vitae, quam. Quisque nisi. Nunc vitae nulla vel turpis mollis molestie. Etiam vitae massa.&lt;</p>
+</div>
